@@ -1,0 +1,9 @@
+from rest_framework import serializers
+from .models import Article
+
+#creating our serializer class and importing our model class from .models
+#here we are using modelserializers
+class ArticleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Article
+        fields = ['id','title','description']

@@ -1,0 +1,32 @@
+Models
+
+To create models first we will create a model class and pass various fields in it .
+
+class Article(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+
+    #creating a def str to return the title
+    def __str__(self):
+        return self.title
+
+And then we will use this command in. Terminal to pass the model to our databases 
+
+Python manage.py makemigrations
+
+And then we will use
+
+Python manage.py migrate 
+
+And after this we will go to our admin.py page to register our models there which. We will do in the following way 
+
+# Register your models here.
+#first way to register a model
+
+#admin.site.register(Article)
+
+#second way to register a model
+@admin.register(Article)
+class ArticleModel(admin.ModelAdmin):
+    list_filter = ('title' , 'description')
+
